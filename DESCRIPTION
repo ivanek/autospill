@@ -1,5 +1,5 @@
 Package: autospill
-Version: 0.2.0
+Version: 0.2.1
 Date: 2021-06-17
 Title: AutoSpill: A method for calculating spillover coefficients to 
     compensate or unmix high-parameter flow cytometry data
@@ -17,6 +17,5 @@ Imports: deldir, fields, flowCore, flowWorkspace, ggplot2, MASS, moments,
     parallel, RColorBrewer, rlang, sp, tripack
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list( markdown = TRUE )
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.3.9001
