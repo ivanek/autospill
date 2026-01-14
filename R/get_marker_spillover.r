@@ -42,7 +42,7 @@ get.marker.spillover <- function( scale.untransformed, flow.gate, flow.control,
     marker.spillover.zero <- rep( 0, flow.control$marker.n )
     names( marker.spillover.zero ) <- flow.control$marker
 
-    marker.spillover <- bplapply( flow.control$sample, function( samp ) {
+    marker.spillover <- lapply( flow.control$sample, function( samp ) {
         marker.proper <- samp
 
         marker.proper.expr <- expr.data[

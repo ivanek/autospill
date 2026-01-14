@@ -34,7 +34,7 @@ get.marker.spillover.posnegpop <- function( flow.gate, flow.control, asp) {
     marker.spillpopu.zero <- rep( 0, flow.control$marker.n )
     names( marker.spillpopu.zero ) <- flow.control$marker
 
-    marker.spillpopu <- bplapply( flow.control$sample, function( samp ) {
+    marker.spillpopu <- lapply( flow.control$sample, function( samp ) {
         marker.proper <- samp
 
         marker.proper.expr <- flow.control$expr.data.tran[
