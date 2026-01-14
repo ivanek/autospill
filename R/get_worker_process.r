@@ -13,6 +13,6 @@
 
 get.worker.process <- function( worker.process.n )
 {
-    ifelse( worker.process.n != 0, worker.process.n, detectCores() )
+    ifelse( worker.process.n != 0, worker.process.n, bpnworkers(bpparam()) )
 }
 

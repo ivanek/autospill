@@ -14,8 +14,8 @@ Authors@R: person( "Carlos P.", "Roca", role = c( "aut", "cre" ),
 Depends: R (>= 3.6.0)
 biocViews: 
 Imports: deldir, fields, flowCore, flowWorkspace, ggplot2, MASS, moments, 
-    parallel, RColorBrewer, rlang, sp, tripack
+    parallel, RColorBrewer, rlang, sp, tripack, BiocParallel
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list( markdown = TRUE )
-RoxygenNote: 7.2.3.9001
+RoxygenNote: 7.3.3

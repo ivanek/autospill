@@ -4,12 +4,17 @@
 \alias{gate.flow.data}
 \title{Gate events in flow data}
 \usage{
-gate.flow.data(flow.control, asp)
+gate.flow.data(flow.control, asp, BPPARAM = bpparam())
 }
 \arguments{
 \item{flow.control}{List with data and metadata of a set of controls.}
 
 \item{asp}{List with AutoSpill parameters.}
+
+\item{BPPARAM}{An optional \code{BiocParallelParam} instance determining
+the parallel back-end to be used during evaluation, or a list of
+\code{BiocParallelParam} instances, to be applied in sequence for nested
+calls to \code{BiocParallel} functions.}
 }
 \value{
 List of vectors, one per sample, with the ids of gated events.

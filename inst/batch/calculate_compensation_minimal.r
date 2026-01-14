@@ -29,7 +29,8 @@ asp <- get.autospill.param()
 # read flow controls
 
 control.dir <- "../fcs_control_data/"
-control.def.file <- "../fcs_control_data/fcs_control.csv"
+# control.dir <- "~/Documents/Projects/ivanek/autospill_data/FlowRepository_FR-FCM-Z2SS_files"
+control.def.file <- file.path(control.dir, "fcs_control.csv")
 
 flow.control <- read.flow.control( control.dir, control.def.file, asp )
 

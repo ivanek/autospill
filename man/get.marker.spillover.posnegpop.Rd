@@ -4,7 +4,12 @@
 \alias{get.marker.spillover.posnegpop}
 \title{Get spillover coefficients using positive and negative populations}
 \usage{
-get.marker.spillover.posnegpop(flow.gate, flow.control, asp)
+get.marker.spillover.posnegpop(
+  flow.gate,
+  flow.control,
+  asp,
+  BPPARAM = bpparam()
+)
 }
 \arguments{
 \item{flow.gate}{List of vectors with ids of gated events per sample.}
@@ -12,6 +17,11 @@ get.marker.spillover.posnegpop(flow.gate, flow.control, asp)
 \item{flow.control}{List with data and metadata of a set of controls.}
 
 \item{asp}{List with AutoSpill parameters.}
+
+\item{BPPARAM}{An optional \code{BiocParallelParam} instance determining
+the parallel back-end to be used during evaluation, or a list of
+\code{BiocParallelParam} instances, to be applied in sequence for nested
+calls to \code{BiocParallel} functions.}
 }
 \value{
 Matrix with spillover coefficients.

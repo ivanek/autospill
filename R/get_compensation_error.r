@@ -13,13 +13,11 @@
 
 get.compensation.error <- function( expr.data.unco, expr.data.comp,
     marker.spillover.unco, scale.untransformed, plot.figure, figure.label,
-    flow.gate, flow.control, asp )
-{
+    flow.gate, flow.control, asp, BPPARAM = bpparam()) {
     marker.spillover.zero <- rep( 0, flow.control$marker.n )
     names( marker.spillover.zero ) <- flow.control$marker
 
-    marker.spillover.comp <- mclapply( flow.control$sample, function( samp )
-    {
+    marker.spillover.comp <- bplapply( flow.control$sample, function( samp ) {
         marker.proper <- samp
 
         # get expression data for primary marker
@@ -192,7 +190,7 @@ get.compensation.error <- function( expr.data.unco, expr.data.comp,
         c( marker.spillover.comp.inte, marker.spillover.comp.coef,
             marker.spillover.comp.slop, marker.spillover.comp.skew )
     },
-    mc.cores = get.worker.process( asp$worker.process.n ) ) # samp
+    BPPARAM = BPPARAM ) # samp
 
     marker.spillover.comp <- do.call( rbind, marker.spillover.comp )
     rownames( marker.spillover.comp ) <- flow.control$marker
