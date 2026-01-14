@@ -15,10 +15,6 @@
 #'
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
-#' @param BPPARAM An optional \code{BiocParallelParam} instance determining
-#' the parallel back-end to be used during evaluation, or a list of
-#' \code{BiocParallelParam} instances, to be applied in sequence for nested
-#' calls to \code{BiocParallel} functions.
 #'
 #' @return List of vectors, one per sample, with the ids of gated events.
 #'
@@ -34,18 +30,17 @@
 #'
 #' @export
 
-gate.flow.data <- function(flow.control, asp, BPPARAM = bpparam()) {
+gate.flow.data <- function(flow.control, asp) {
     # gate events sample by sample
 
-    flow.gates <- bplapply( flow.control$sample, function( samp )
+    flow.gates <- lapply( flow.control$sample, function( samp )
         do.gate(
             flow.control$expr.data.untr[ flow.control$event.sample == samp,
                 flow.control$scatter.parameter ],
             flow.control$gate.parameter[[ flow.control$marker.original[
                 match( samp, flow.control$marker ) ] ]],
             samp, flow.control, asp
-        ),
-        BPPARAM = BPPARAM
+        )
     )
 
     names( flow.gates ) <- flow.control$sample

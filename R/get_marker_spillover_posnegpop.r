@@ -15,10 +15,6 @@
 #' @param flow.gate List of vectors with ids of gated events per sample.
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
-#' @param BPPARAM An optional \code{BiocParallelParam} instance determining
-#' the parallel back-end to be used during evaluation, or a list of
-#' \code{BiocParallelParam} instances, to be applied in sequence for nested
-#' calls to \code{BiocParallel} functions.
 #'
 #' @return Matrix with spillover coefficients.
 #'
@@ -34,7 +30,7 @@
 #'
 #' @export
 
-get.marker.spillover.posnegpop <- function( flow.gate, flow.control, asp, BPPARAM = bpparam()) {
+get.marker.spillover.posnegpop <- function( flow.gate, flow.control, asp) {
     marker.spillpopu.zero <- rep( 0, flow.control$marker.n )
     names( marker.spillpopu.zero ) <- flow.control$marker
 
@@ -162,8 +158,8 @@ get.marker.spillover.posnegpop <- function( flow.gate, flow.control, asp, BPPARA
             }
 
         marker.spillpopu.coef
-    },
-    BPPARAM = BPPARAM)
+    }
+    )
 
     marker.spillpopu <- do.call( rbind, marker.spillpopu )
     rownames( marker.spillpopu ) <- flow.control$marker

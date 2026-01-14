@@ -47,7 +47,4 @@
 #' @importFrom tripack convex.hull tri.mesh
 #'
 #' @importFrom utils read.csv read.table write.csv write.table
-#'
-#' @import BiocParallel
-
 NULL

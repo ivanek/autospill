@@ -4,13 +4,7 @@
 \alias{get.marker.spillover}
 \title{Get spillover coefficients}
 \usage{
-get.marker.spillover(
-  scale.untransformed,
-  flow.gate,
-  flow.control,
-  asp,
-  BPPARAM = bpparam()
-)
+get.marker.spillover(scale.untransformed, flow.gate, flow.control, asp)
 }
 \arguments{
 \item{scale.untransformed}{Logical indicating if calculation has to be run
@@ -21,11 +15,6 @@ in untransformed or transformed (bi-exponential) scale.}
 \item{flow.control}{List with data and metadata of a set of controls.}
 
 \item{asp}{List with AutoSpill parameters.}
-
-\item{BPPARAM}{An optional \code{BiocParallelParam} instance determining
-the parallel back-end to be used during evaluation, or a list of
-\code{BiocParallelParam} instances, to be applied in sequence for nested
-calls to \code{BiocParallel} functions.}
 }
 \value{
 List of two matrices, with regressions intercepts and coefficients.

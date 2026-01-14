@@ -17,10 +17,6 @@
 #' @param flow.gate List of vectors with ids of gated events per sample.
 #' @param flow.control List with data and metadata of a set of controls.
 #' @param asp List with AutoSpill parameters.
-#' @param BPPARAM An optional \code{BiocParallelParam} instance determining
-#' the parallel back-end to be used during evaluation, or a list of
-#' \code{BiocParallelParam} instances, to be applied in sequence for nested
-#' calls to \code{BiocParallel} functions.
 #'
 #' @return List of two matrices, with regressions intercepts and coefficients.
 #'
@@ -37,7 +33,7 @@
 #' @export
 
 get.marker.spillover <- function( scale.untransformed, flow.gate, flow.control,
-    asp, BPPARAM = bpparam()) {
+    asp) {
     if ( scale.untransformed )
         expr.data <- flow.control$expr.data.untr
     else
@@ -106,8 +102,8 @@ get.marker.spillover <- function( scale.untransformed, flow.gate, flow.control,
             }
 
         c( marker.spillover.inte, marker.spillover.coef )
-    },
-    BPPARAM = BPPARAM )
+    }
+    )
 
     marker.spillover <- do.call( rbind, marker.spillover )
     rownames( marker.spillover ) <- flow.control$marker
